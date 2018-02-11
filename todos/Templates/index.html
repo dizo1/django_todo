@@ -1,0 +1,49 @@
+{% include 'partials/header.html' %}
+
+<div class="container">
+      <!--<ol class="breadcrumb my-4">
+        <li class="breadcrumb-item active">Todos</li>
+      </ol>-->
+        <h1 class="page-header">Todos</h1>
+
+  <p>
+    <button type="button"
+            class="btn btn-primary">
+      <span class="glyphicon glyphicon-plus"></span>
+     <a href="/todos/add"> New Todo</a>
+    </button>
+  </p>
+      <table class="table">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Todo</th>
+            <th>Text</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for todo in todos %}
+            <tr>
+              <td>
+                <a href="/todo/details/{{ todo.id }}">{{ todo.title }}
+              </td>
+                <td>{{ todo.text }}</td>
+              <!--<td class="align-middle">0</td>
+              <td class="align-middle">0</td>-->
+              <td>{{ todo.created_at }}</td>
+            <td>
+      <button type="button"
+              class="btn btn-warning btn-sm">
+        <a href="{% url 'update' todo.id %}"> Edit
+      </a></button></td>
+                <td>
+
+                <button type="button" class="btn btn-danger btn-sm">
+        <a href="{% url 'delete' todo.id %}"> Delete
+      </a></button>
+            </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
