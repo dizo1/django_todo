@@ -45,9 +45,12 @@ def add(request):
 class TodoUpdate(UpdateView):
     model = Todo
     #fields = ['title', 'text']
-    template_name = "edit.html"
+    template_name = "todo_update_form.html"
     name = "update"
     form_class = TodoForm
+
+    def get_success_url(self):
+        return reverse('index')
 
 
 class TodoDelete(DeleteView):
