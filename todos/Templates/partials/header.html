@@ -47,7 +47,15 @@
             </div>
         </form>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Login</a></li>
+
+            {% if user.is_authenticated %}
+                <li>User: {{ user.get_username }}</li>
+                <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">signup</a></li>
+            {% endif %}
             </ul>
     </div>
 </nav>

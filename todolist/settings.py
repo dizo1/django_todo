@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #'accounts',
+    'crispy_forms',
     'todos.apps.TodosConfig',
 ]
 
@@ -182,3 +185,5 @@ BOOTSTRAP4 = {
         'inline': 'bootstrap4.renderers.InlineFieldRenderer',
     },
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
